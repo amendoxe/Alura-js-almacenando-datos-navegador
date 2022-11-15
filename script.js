@@ -3,13 +3,13 @@ import deleteIcon from "./components/deleteIcon.js";
 
 const btn = document.querySelector("[data-form-btn]");
 
-//COMMENT add Task sólamente se encarga de agregar a la lista de tareas
+//COMMENT add Task solamente se encarga de agregar a la lista de tareas
 const addTask = (evento) => {
 	const list = document.querySelector("[data-list]");
 	const task = createTask(evento);
 	list.appendChild(task);
 };
-
+const taskList = [];
 const createTask = (evento) => {
 	evento.preventDefault();
 	const input = document.querySelector("[data-form-input]");
@@ -24,7 +24,13 @@ const createTask = (evento) => {
 	input.value = "";
 	//backticks
 	const taskContent = document.createElement("div");
-	console.log(value, dateFormat);
+
+	const taskObj = {
+		value,
+		dateFormat
+	};
+	taskList.push(taskObj);
+	localStorage.setItem("task", JSON.stringify(taskList)); //Ambos parámetros deben estar en formato string para verlo en el Session Storage
 
 	const titleTask = document.createElement("span");
 	titleTask.classList.add("task");

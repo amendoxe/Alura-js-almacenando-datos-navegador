@@ -3,7 +3,7 @@ import deleteIcon from "./components/deleteIcon.js";
 
 const btn = document.querySelector("[data-form-btn]");
 
-//add Task sólamente se encarga de agregar a la lista de tareas
+//COMMENT add Task sólamente se encarga de agregar a la lista de tareas
 const addTask = (evento) => {
 	const list = document.querySelector("[data-list]");
 	const task = createTask(evento);
@@ -24,6 +24,7 @@ const createTask = (evento) => {
 	input.value = "";
 	//backticks
 	const taskContent = document.createElement("div");
+	console.log(value, dateFormat);
 
 	const titleTask = document.createElement("span");
 	titleTask.classList.add("task");
@@ -32,14 +33,14 @@ const createTask = (evento) => {
 	taskContent.appendChild(titleTask);
 	// task.innerHTML = content;
 
-	const dateElement = document.createElement("span"); //sólo estamos creando el espacio
-	dateElement.innerHTML = dateFormat; //pone adentro la fecha dateFormat, pero aún no hace un display en nuestra página
+	const dateElement = document.createElement("span"); //COMMENT sólo estamos creando el espacio
+	dateElement.innerHTML = dateFormat; //COMMENT pone adentro la fecha dateFormat, pero aún no hace un display en nuestra página
 
 	task.appendChild(taskContent);
 	//Para hacer el display↓
 	task.appendChild(dateElement);
 	task.appendChild(deleteIcon());
-	//aqui estaba 	list.appendChild(task);
+	//COMMENT aqui estaba 	list.appendChild(task);
 	return task;
 };
 
